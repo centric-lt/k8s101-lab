@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:
+  namespace:
+spec:
+  selector:
+    matchLabels:
+      app: #k8s101
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: #k8s101
+    spec:
+      containers:
+        - name: app
+          image: tcentric/k8s101:0.1
+          ports:
+            - containerPort: 80
+              # name: http
+          resources:
+            requests:
+              memory: "32Mi"
+              cpu: "50m"
+            limits:
+              memory: "32Mi"
+              cpu: "50m"

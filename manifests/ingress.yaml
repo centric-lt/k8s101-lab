@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    kubernetes.io/ingress.class: internal
+  name:
+  namespace:
+spec:
+  rules:
+    - host: #tom01-int-d00.atlasplatform.eu
+      http:
+        paths:
+          - backend:
+              serviceName:
+              servicePort:
+            path: /
+  tls:
+    - hosts:
+        - #tom01-int-d00.atlasplatform.eu
